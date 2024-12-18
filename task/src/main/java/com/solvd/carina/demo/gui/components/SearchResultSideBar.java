@@ -15,7 +15,7 @@ public class SearchResultSideBar extends AbstractUIObject {
     @FindBy(css = "ul.x-refine__left__nav li ul.x-refine__left__nav > li")
     private List<ExtendedWebElement> filterGroups;
 
-    protected SearchResultSideBar(WebDriver driver, SearchContext searchContext) {
+    public SearchResultSideBar(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 

@@ -14,7 +14,7 @@ public class SelectOptionModal extends AbstractUIObject {
     @FindBy(css = "div[role='listbox'] div[role='option']:not([aria-disabled])")
     private List<ExtendedWebElement> availableOptions;
 
-    protected SelectOptionModal(WebDriver driver, SearchContext searchContext) {
+    public SelectOptionModal(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 

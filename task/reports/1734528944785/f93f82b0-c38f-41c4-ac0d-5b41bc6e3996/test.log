@@ -1,0 +1,18 @@
+[2024-12-18 01:35:46] [67] [WARN] Reporting disabled: using no op test run registrar
+[2024-12-18 01:35:46] [67] [INFO] TEST [EbayTests - testShoppingCartRemove] STARTED at [10:35:46 2024-12-18]
+[2024-12-18 01:35:46] [67] [INFO] Starting driver session...
+[2024-12-18 01:35:51] [67] [INFO] Driver session started.
+[2024-12-18 01:35:51] [67] [INFO] INFO: opening url 'https://www.ebay.com'
+[2024-12-18 01:35:53] [67] [INFO] PASS: keys 't-shirt' are sent to element 'searchBox'.
+[2024-12-18 01:35:58] [67] [INFO] PASS: element 'searchButton' is clicked.
+[2024-12-18 01:36:00] [67] [INFO] PASS: element 'title' is clicked.
+[2024-12-18 01:36:02] [67] [INFO] PASS: element 'selectOptionButtons0' is clicked.
+[2024-12-18 01:36:04] [67] [INFO] PASS: element 'availableOptions1' is clicked.
+[2024-12-18 01:36:05] [67] [INFO] PASS: element 'selectOptionButtons1' is clicked.
+[2024-12-18 01:36:07] [67] [INFO] PASS: element 'availableOptions1' is clicked.
+[2024-12-18 01:36:08] [67] [INFO] PASS: element 'selectOptionButtons2' is clicked.
+[2024-12-18 01:36:09] [67] [INFO] PASS: element 'availableOptions2' is clicked.
+[2024-12-18 01:36:31] [67] [ERROR] Your retry_interval is too low: 100 ms! Increase it or upgrade your hardware
+[2024-12-18 01:36:54] [67] [INFO] PASS: element 'addToCartButton' is clicked.
+[2024-12-18 01:36:55] [67] [INFO] PASS: element 'removeButton' is clicked.
+[2024-12-18 01:37:21] [67] [INFO] TEST [EbayTests - testShoppingCartRemove] PASSED at [10:37:21 2024-12-18]

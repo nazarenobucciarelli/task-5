@@ -1,6 +1,6 @@
 package com.solvd.carina.demo.gui.components;
 
-import com.solvd.carina.demo.gui.pages.desktop.ShoppingCartEbayPage;
+import com.solvd.carina.demo.gui.pages.desktop.ShoppingCartPage;
 import com.zebrunner.carina.utils.factory.ICustomTypePageFactory;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
@@ -13,12 +13,12 @@ public class Dialog extends AbstractUIObject implements ICustomTypePageFactory {
     @FindBy(css = ".confirm-dialog__confirm")
     private ExtendedWebElement confirmButton;
 
-    protected Dialog(WebDriver driver, SearchContext searchContext) {
+    public Dialog(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
-    public ShoppingCartEbayPage clickConfirmButton() {
+    public ShoppingCartPage clickConfirmButton() {
             confirmButton.click();
-            return initPage(driver, ShoppingCartEbayPage.class);
+            return new ShoppingCartPage(driver);
     }
 }

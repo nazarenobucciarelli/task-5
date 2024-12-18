@@ -1,10 +1,12 @@
 package com.solvd.carina.demo.gui.components;
 
+import com.solvd.carina.demo.gui.pages.desktop.ShoppingCartPage;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
 import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class CartProduct extends AbstractUIObject {
 
@@ -18,8 +20,10 @@ public class CartProduct extends AbstractUIObject {
         super(driver, searchContext);
     }
 
-    public void clickRemoveButton() {
+    public ShoppingCartPage clickRemoveButton() {
         removeButton.click();
+        waitUntil(webDriver -> !removeButton.isElementPresent(),5);
+        return new ShoppingCartPage(driver);
     }
 
     public String getTitle() {

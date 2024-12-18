@@ -1,6 +1,6 @@
 package com.solvd.carina.demo.gui.components;
 
-import com.solvd.carina.demo.gui.pages.desktop.CategoryEbayPage;
+import com.solvd.carina.demo.gui.pages.desktop.CategoryPage;
 import com.zebrunner.carina.utils.factory.ICustomTypePageFactory;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
@@ -16,13 +16,13 @@ public class ShopByCategoryModal extends AbstractUIObject implements ICustomType
     @FindBy(css = ".scnd")
     private List<ExtendedWebElement> categories;
 
-    protected ShopByCategoryModal(WebDriver driver, SearchContext searchContext) {
+    public ShopByCategoryModal(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
-    public CategoryEbayPage clickRandomCategory() {
+    public CategoryPage clickRandomCategory() {
         int randomIndex = new Random().nextInt(categories.size());
         categories.get(randomIndex).click();
-        return initPage(driver, CategoryEbayPage.class);
+        return new CategoryPage(driver);
     }
 }

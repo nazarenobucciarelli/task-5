@@ -1,0 +1,16 @@
+[2024-12-18 01:48:33] [67] [WARN] Reporting disabled: using no op test run registrar
+[2024-12-18 01:48:33] [67] [INFO] TEST [EbayTests - testShoppingCartRemove] STARTED at [10:48:33 2024-12-18]
+[2024-12-18 01:48:33] [67] [INFO] Starting driver session...
+[2024-12-18 01:48:38] [67] [INFO] Driver session started.
+[2024-12-18 01:48:38] [67] [INFO] INFO: opening url 'https://www.ebay.com'
+[2024-12-18 01:48:39] [67] [INFO] PASS: keys 't-shirt' are sent to element 'searchBox'.
+[2024-12-18 01:48:45] [67] [INFO] PASS: element 'searchButton' is clicked.
+[2024-12-18 01:48:47] [67] [INFO] PASS: element 'title' is clicked.
+[2024-12-18 01:48:49] [67] [INFO] PASS: element 'selectOptionButtons0' is clicked.
+[2024-12-18 01:48:50] [67] [INFO] PASS: element 'availableOptions1' is clicked.
+[2024-12-18 01:48:51] [67] [INFO] PASS: element 'selectOptionButtons1' is clicked.
+[2024-12-18 01:48:53] [67] [INFO] PASS: element 'availableOptions3' is clicked.
+[2024-12-18 01:49:16] [67] [INFO] PASS: element 'addToCartButton' is clicked.
+[2024-12-18 01:49:17] [67] [INFO] PASS: element 'removeButton' is clicked.
+[2024-12-18 01:49:39] [67] [ERROR] FAIL: get_text - waitCondition for element 'cartNumber (By.id: gh-cart-n)' not satisfied!
+[2024-12-18 01:49:39] [67] [INFO] TEST [EbayTests - testShoppingCartRemove] PASSED at [10:49:39 2024-12-18]

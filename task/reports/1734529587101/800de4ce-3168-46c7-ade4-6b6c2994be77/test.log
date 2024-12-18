@@ -1,0 +1,17 @@
+[2024-12-18 01:46:29] [67] [WARN] Reporting disabled: using no op test run registrar
+[2024-12-18 01:46:29] [67] [INFO] TEST [EbayTests - testShoppingCartRemove] STARTED at [10:46:29 2024-12-18]
+[2024-12-18 01:46:29] [67] [INFO] Starting driver session...
+[2024-12-18 01:46:33] [67] [INFO] Driver session started.
+[2024-12-18 01:46:33] [67] [INFO] INFO: opening url 'https://www.ebay.com'
+[2024-12-18 01:46:35] [67] [INFO] PASS: keys 't-shirt' are sent to element 'searchBox'.
+[2024-12-18 01:46:41] [67] [INFO] PASS: element 'searchButton' is clicked.
+[2024-12-18 01:46:42] [67] [INFO] PASS: element 'title' is clicked.
+[2024-12-18 01:46:44] [67] [INFO] PASS: element 'selectOptionButtons0' is clicked.
+[2024-12-18 01:46:45] [67] [INFO] PASS: element 'availableOptions2' is clicked.
+[2024-12-18 01:46:46] [67] [INFO] PASS: element 'selectOptionButtons1' is clicked.
+[2024-12-18 01:46:47] [67] [INFO] PASS: element 'availableOptions2' is clicked.
+[2024-12-18 01:47:08] [67] [ERROR] Your retry_interval is too low: 100 ms! Increase it or upgrade your hardware
+[2024-12-18 01:47:30] [67] [INFO] PASS: element 'addToCartButton' is clicked.
+[2024-12-18 01:47:31] [67] [INFO] PASS: element 'removeButton' is clicked.
+[2024-12-18 01:47:54] [67] [ERROR] FAIL: get_text - waitCondition for element 'cartNumber (By.id: gh-cart-n)' not satisfied!
+[2024-12-18 01:47:54] [67] [INFO] TEST [EbayTests - testShoppingCartRemove] PASSED at [10:47:54 2024-12-18]

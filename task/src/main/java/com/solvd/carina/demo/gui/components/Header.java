@@ -1,8 +1,8 @@
 package com.solvd.carina.demo.gui.components;
 
-import com.solvd.carina.demo.gui.pages.desktop.CategoryEbayPage;
-import com.solvd.carina.demo.gui.pages.desktop.SearchResultsEbayPage;
-import com.solvd.carina.demo.gui.pages.desktop.SignInEbayPage;
+import com.solvd.carina.demo.gui.pages.desktop.CategoryPage;
+import com.solvd.carina.demo.gui.pages.desktop.SearchResultsPage;
+import com.solvd.carina.demo.gui.pages.desktop.SignInPage;
 import com.zebrunner.carina.utils.factory.ICustomTypePageFactory;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
@@ -50,14 +50,14 @@ public class Header extends AbstractUIObject implements ICustomTypePageFactory {
         searchBox.type(text);
     }
 
-    public SearchResultsEbayPage clickSearchButton() {
+    public SearchResultsPage clickSearchButton() {
         searchButton.click();
-        return initPage(driver, SearchResultsEbayPage.class);
+        return new SearchResultsPage(driver);
     }
 
-    public CategoryEbayPage clickSearchButtonByCategory() {
+    public CategoryPage clickSearchButtonByCategory() {
         searchButton.click();
-        return initPage(driver, CategoryEbayPage.class);
+        return new CategoryPage(driver);
     }
 
     public ShopByCategoryModal clickShopByCategoryButton() {
@@ -66,22 +66,21 @@ public class Header extends AbstractUIObject implements ICustomTypePageFactory {
     }
 
     public int getCartNumber() {
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
+        try{
+            return Integer.parseInt(cartNumber.getText());
+        } catch (Exception e) {
+            return 0;
         }
-        return Integer.parseInt(cartNumber.getText());
     }
 
-    public SignInEbayPage clickSignInButton() {
+    public SignInPage clickSignInButton() {
         signInButton.click();
         try {
             Thread.sleep(20000); // To solve captcha
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-        return initPage(driver, SignInEbayPage.class);
+        return new SignInPage(driver);
     }
 
     public LanguageSwitchModal clickLanguageMenuButton() {

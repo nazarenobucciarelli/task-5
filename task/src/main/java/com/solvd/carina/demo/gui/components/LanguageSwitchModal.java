@@ -1,6 +1,6 @@
 package com.solvd.carina.demo.gui.components;
 
-import com.solvd.carina.demo.gui.pages.desktop.HomeEbayPage;
+import com.solvd.carina.demo.gui.pages.desktop.HomePage;
 import com.zebrunner.carina.utils.factory.ICustomTypePageFactory;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import com.zebrunner.carina.webdriver.gui.AbstractUIObject;
@@ -15,15 +15,15 @@ public class LanguageSwitchModal extends AbstractUIObject implements ICustomType
     private List<ExtendedWebElement> languageOption;
 
 
-    protected LanguageSwitchModal(WebDriver driver, SearchContext searchContext) {
+    public LanguageSwitchModal(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
-    public HomeEbayPage clickOnRandomLanguageOption() {
+    public HomePage clickOnRandomLanguageOption() {
         ExtendedWebElement firstOption = languageOption.get(0);
         String lang = firstOption.getAttribute("lang");
         System.out.println(lang);
         firstOption.click();
-        return initPage(driver, HomeEbayPage.class);
+        return new HomePage(driver);
     }
 }

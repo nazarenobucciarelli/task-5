@@ -13,7 +13,7 @@ public class Select extends AbstractUIObject {
     @FindBy(css = "option")
     private List<ExtendedWebElement> options;
 
-    protected Select(WebDriver driver, SearchContext searchContext) {
+    public Select(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
