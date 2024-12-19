@@ -1,0 +1,24 @@
+[2024-12-19 08:03:33] [1] [INFO] 
+============= Basic configuration =============
+env=DEMO
+=========== Encryptor configuration ===========
+crypto_key_value=*****
+=========== WebDriver configuration ===========
+url=https://www.ebay.co.uk
+selenium_url=http://localhost:4444/wd/hub
+auto_screenshot=true
+localization_encoding=UTF-8
+language=en_US
+-------------- Driver capabilities ------------
+browserName=chrome
+===============================================
+
+[2024-12-19 08:03:33] [1] [WARN] Reporting disabled: using no op test run registrar
+[2024-12-19 08:03:35] [1] [INFO] [TestNG] Running:
+  /Users/solvd/Work/bench-tasks/task-5/src/test/resources/testng_suites/web-ebay.xml
+
+[2024-12-19 08:03:35] [1] [INFO] Use thread-count='2' from suite file.
+[2024-12-19 08:03:35] [1] [INFO] Set data-provider-thread-count=1
+[2024-12-19 08:03:35] [1] [INFO] CARINA_CORE_VERSION: 1.1.3
+[2024-12-19 08:03:35] [1] [INFO] INFO: '**************** Test execution summary ****************'.
+[2024-12-19 08:03:35] [1] [INFO] RESULT #1: TEST [EbayTests - testShoppingCartAdd] FAIL [log=file:///Users/solvd/Work/bench-tasks/task-5/./reports/1734638613244/1aada80e-bba3-40d9-a68f-07f9cb71a9a8/test.log]
