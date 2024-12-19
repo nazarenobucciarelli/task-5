@@ -9,12 +9,12 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 import java.util.Random;
 
-public class SelectOptionModal extends AbstractUIObject {
+public class SelectOptionModalComponent extends AbstractUIObject {
 
     @FindBy(css = "div[role='listbox'] div[role='option']:not([aria-disabled])")
     private List<ExtendedWebElement> availableOptions;
 
-    public SelectOptionModal(WebDriver driver, SearchContext searchContext) {
+    public SelectOptionModalComponent(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 
@@ -25,4 +25,5 @@ public class SelectOptionModal extends AbstractUIObject {
         }
         availableOptions.get(randomIndex).click();
     }
+
 }

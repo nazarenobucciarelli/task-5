@@ -30,7 +30,7 @@ com.zebrunner.carina.webdriver.decorator.ExtendedWebElement.overrideAction(Exten
 com.zebrunner.carina.webdriver.decorator.ExtendedWebElement.doAction(ExtendedWebElement.java:1510)
 com.zebrunner.carina.webdriver.decorator.ExtendedWebElement.doAction(ExtendedWebElement.java:1487)
 com.zebrunner.carina.webdriver.decorator.ExtendedWebElement.getText(ExtendedWebElement.java:362)
-com.solvd.carina.demo.gui.components.Header.getCartNumber(Header.java:70)
+com.solvd.carina.demo.gui.components.HeaderComponent.getCartNumber(Header.java:70)
 com.solvd.carina.demo.GUITests.testShoppingCartRemove(GUIEbayTests.java:80)
 java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
 java.base/java.lang.reflect.Method.invoke(Method.java:580)

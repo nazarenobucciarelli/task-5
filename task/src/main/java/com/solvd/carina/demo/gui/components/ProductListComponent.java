@@ -7,7 +7,7 @@ import org.openqa.selenium.SearchContext;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
-public class Product extends AbstractUIObject {
+public class ProductListComponent extends AbstractUIObject {
 
     @FindBy(css = ".s-item .s-item__title span")
     private ExtendedWebElement title;
@@ -15,7 +15,7 @@ public class Product extends AbstractUIObject {
     @FindBy(css = ".s-item__price")
     private ExtendedWebElement price;
 
-    public Product(WebDriver driver, SearchContext searchContext) {
+    public ProductListComponent(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 

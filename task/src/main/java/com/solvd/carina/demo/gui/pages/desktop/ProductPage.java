@@ -1,16 +1,15 @@
 package com.solvd.carina.demo.gui.pages.desktop;
 
-import com.solvd.carina.demo.gui.components.Dialog;
-import com.solvd.carina.demo.gui.components.SelectOptionModal;
+import com.solvd.carina.demo.gui.components.DialogComponent;
+import com.solvd.carina.demo.gui.components.SelectOptionModalComponent;
+import com.solvd.carina.demo.gui.components.ShoppingCartOverlayComponent;
 import com.solvd.carina.demo.gui.pages.common.PageBase;
 import com.zebrunner.carina.webdriver.decorator.ExtendedWebElement;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
 
-import java.time.Duration;
 import java.util.List;
 
 public class ProductPage extends PageBase {
@@ -25,35 +24,35 @@ public class ProductPage extends PageBase {
     private ExtendedWebElement productName;
 
     @FindBy(css = "span.listbox-button--expanded")
-    private SelectOptionModal selectOptionModal;
+    private SelectOptionModalComponent selectOptionModalComponent;
 
     @FindBy(css = "div.confirm-dialog__window")
-    private Dialog confirmationDialog;
+    private DialogComponent confirmationDialogComponent;
+
+    @FindBy(css = "div[data-testid='ux-overlay'][aria-hidden='false']")
+    private ShoppingCartOverlayComponent overlay;
 
     public ProductPage(WebDriver driver) {
         super(driver);
     }
 
     public void selectRandomOptions() {
-        waitUntil(webDriver -> areSelectOptionButtonsPresent(),5);
         for (ExtendedWebElement button : selectOptionButtons) {
-            SelectOptionModal selectModal = clickOptionButton(button);
+            waitUntil(webDriver -> button.isVisible(), 5)
+            SelectOptionModalComponent selectModal = clickOptionButton(button);
             selectModal.selectRandomOption();
+            waitUntil(webDriver -> selectModal.isUIObjectPresent(), 5);
         }
     }
 
-    private boolean areSelectOptionButtonsPresent() {
-        return selectOptionButtons.stream().allMatch(ExtendedWebElement::isClickable);
-    }
-
-    public SelectOptionModal clickOptionButton(ExtendedWebElement button) {
+    public SelectOptionModalComponent clickOptionButton(ExtendedWebElement button) {
         button.click();
-        return selectOptionModal;
+        return selectOptionModalComponent;
     }
 
-    public ShoppingCartPage clickAddToCartButton() {
+    public ShoppingCartOverlayComponent clickAddToCartButton() {
         addToCartButton.click();
-        return new ShoppingCartPage(driver);
+        return new ShoppingCartOverlayComponent(driver);
     }
 
     public boolean isAddToCartButtonPresent() {
@@ -64,11 +63,12 @@ public class ProductPage extends PageBase {
         return productName.getText();
     }
 
-    public boolean isConfirmationDialogPresent() {
-        return confirmationDialog.isUIObjectPresent();
+    public DialogComponent getConfirmationDialog() {
+        return confirmationDialogComponent;
     }
 
-    public Dialog getConfirmationDialog() {
-        return confirmationDialog;
+    public boolean isConfirmationDialogDisplayed() {
+        waitUntil(webDriver -> confirmationDialogComponent.isUIObjectPresent(), 5);
+        return confirmationDialogComponent.isUIObjectPresent();
     }
 }

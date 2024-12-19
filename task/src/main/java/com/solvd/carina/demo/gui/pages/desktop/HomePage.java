@@ -19,7 +19,9 @@ public class HomePage extends PageBase {
     }
 
     public List<ExtendedWebElement> getCategories() {
-        return categories.stream().filter(category -> category.isVisible()
-                && !category.getText().equals("Explore (New!)")).collect(Collectors.toList());
+        return categories.stream()
+                .filter(category -> category.isVisible()
+                        && !category.getText().equals("Explore (New!)") && !category.getText().equals("Saved"))
+                .collect(Collectors.toList());
     }
 }

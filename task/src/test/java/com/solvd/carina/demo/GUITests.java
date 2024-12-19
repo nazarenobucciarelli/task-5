@@ -17,12 +17,12 @@ public class GUITests implements IAbstractTest {
     public void testSearchResults() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        Header header = homePage.getHeader();
-        header.typeSearchBox("football jerseys");
-        SearchResultsPage searchResultsPage = header.clickSearchButton();
-        List<Product> products = searchResultsPage.getProducts();
-        products.forEach(product -> {
-            Assert.assertTrue(!product.getTitle().isEmpty() && !product.getPrice().isEmpty());
+        HeaderComponent headerComponent = homePage.getHeader();
+        headerComponent.typeSearchBox("football jerseys");
+        ProductListPage productListPage = headerComponent.clickSearchButton();
+        List<ProductListComponent> productListComponents = productListPage.getProducts();
+        productListComponents.forEach(productListComponent -> {
+            Assert.assertTrue(!productListComponent.getTitle().isEmpty() && !productListComponent.getPrice().isEmpty());
         });
     }
 
@@ -31,19 +31,19 @@ public class GUITests implements IAbstractTest {
         List<String> productTitles = new ArrayList<>();
 
         ShoppingCartPage shoppingCartPage = addProductToShoppingCart(productTitles, "t-shirts");
-        Header shoppingCartHeader = shoppingCartPage.getHeader();
+        HeaderComponent shoppingCartHeaderComponent = shoppingCartPage.getHeader();
 
-        Assert.assertEquals(shoppingCartHeader.getCartNumber(), 1);
+        Assert.assertEquals(shoppingCartHeaderComponent.getCartNumber(), 1);
         Assert.assertEquals(shoppingCartPage.getProductTitles().size(), 1);
     }
 
     public ShoppingCartPage addProductToShoppingCart(List<String> productTitles, String search) {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
-        Header header = homePage.getHeader();
-        header.typeSearchBox(search);
-        SearchResultsPage searchResultsPage = header.clickSearchButton();
-        ProductPage productPage = searchResultsPage.clickOnRandomProduct();
+        HeaderComponent headerComponent = homePage.getHeader();
+        headerComponent.typeSearchBox(search);
+        ProductListPage productListPage = headerComponent.clickSearchButton();
+        ProductPage productPage = productListPage.clickOnRandomProduct();
         boolean isAddToCartButtonPresent = productPage.isAddToCartButtonPresent();
         while (!isAddToCartButtonPresent) {
             getDriver().close();
@@ -52,7 +52,7 @@ public class GUITests implements IAbstractTest {
             String mainWindowHandle = windowHandles.iterator().next();
             getDriver().switchTo().window(mainWindowHandle);
 
-            productPage = searchResultsPage.clickOnRandomProduct();
+            productPage = productListPage.clickOnRandomProduct();
             isAddToCartButtonPresent = productPage.isAddToCartButtonPresent();
         }
         productTitles.add(productPage.getProductName());
@@ -60,8 +60,8 @@ public class GUITests implements IAbstractTest {
         productPage.selectRandomOptions();
 
         if (productPage.isConfirmationDialogPresent()) {
-            Dialog dialog = productPage.getConfirmationDialog();
-            dialog.clickConfirmButton();
+            DialogComponent dialogComponent = productPage.getConfirmationDialog();
+            dialogComponent.clickConfirmButton();
         }
 
         return productPage.clickAddToCartButton();
@@ -71,7 +71,7 @@ public class GUITests implements IAbstractTest {
     public void testShoppingCartRemove() {
         List<String> productTitles = new ArrayList<>();
         AtomicReference<ShoppingCartPage> shoppingCartPage = new AtomicReference<>(addProductToShoppingCart(productTitles, "t-shirt"));
-        AtomicReference<Header> shoppingCartHeader = new AtomicReference<>(shoppingCartPage.get().getHeader());
+        AtomicReference<HeaderComponent> shoppingCartHeader = new AtomicReference<>(shoppingCartPage.get().getHeader());
         shoppingCartPage.get().getCartProducts().forEach(cartProduct -> {
             shoppingCartPage.set(cartProduct.clickRemoveButton());
             shoppingCartHeader.set(shoppingCartPage.get().getHeader());
@@ -87,8 +87,8 @@ public class GUITests implements IAbstractTest {
     @Test(enabled = false)
     public void testWrongLoginAttempt() {
         HomePage homePage = new HomePage(getDriver());
-        Header header = homePage.getHeader();
-        SignInPage signInPage = header.clickSignInButton();
+        HeaderComponent headerComponent = homePage.getHeader();
+        SignInPage signInPage = headerComponent.clickSignInButton();
         signInPage.typeUserId("invalidUserId");
         signInPage.clickSignInContinueBtn();
         signInPage.typePassword("invalidPassword");
