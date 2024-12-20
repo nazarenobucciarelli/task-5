@@ -49,7 +49,7 @@ public class ProductPage extends PageBase {
 
     public ShoppingCartOverlayComponent clickAddToCartButton() {
         addToCartButton.click();
-        waitUntil(webDriver -> shoppingCartOverlayComponent.isUIObjectPresent(), 5);
+        waitUntil(webDriver -> shoppingCartOverlayComponent.isUIObjectPresent(), 2);
         return shoppingCartOverlayComponent;
     }
 

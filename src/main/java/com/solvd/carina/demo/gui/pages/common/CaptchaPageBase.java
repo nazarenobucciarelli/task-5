@@ -15,7 +15,6 @@ public abstract class CaptchaPageBase extends AbstractPage {
     }
 
     public ExtendedWebElement getCaptcha() {
-        waitUntil(webDriver -> captcha.isVisible(), 5);
         return captcha;
     }
 }

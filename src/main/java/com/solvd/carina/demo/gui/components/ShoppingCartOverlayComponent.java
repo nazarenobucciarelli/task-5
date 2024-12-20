@@ -19,7 +19,7 @@ public class ShoppingCartOverlayComponent extends AbstractUIObject {
     }
 
     public ShoppingCartPage clickOnSeeInBasketButton() {
-        waitUntil(webDriver -> !actionButtons.isEmpty(), 5);
+        waitUntil(webDriver -> !actionButtons.isEmpty(), 2);
         ExtendedWebElement seeInBasketButton = actionButtons.get(1);
         seeInBasketButton.click();
         ShoppingCartPage shoppingCartPage = new ShoppingCartPage(driver);

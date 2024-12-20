@@ -1,0 +1,8 @@
+[2024-12-20 06:18:18] [67] [INFO] TEST [EbayTests - testCategoryShowResults [L02]] STARTED at [15:18:18 2024-12-20]
+[2024-12-20 06:18:18] [67] [INFO] Starting driver session...
+[2024-12-20 06:18:20] [67] [INFO] Driver session started.
+[2024-12-20 06:18:20] [67] [INFO] INFO: opening url 'https://www.ebay.co.uk'
+[2024-12-20 06:18:22] [67] [INFO] PASS: element 'categoriesSelect' is clicked.
+[2024-12-20 06:18:23] [67] [INFO] PASS: element 'options12' is clicked.
+[2024-12-20 06:18:26] [67] [INFO] PASS: element 'searchButton' is clicked.
+[2024-12-20 06:18:29] [67] [INFO] TEST [EbayTests - testCategoryShowResults [L02]] PASSED at [15:18:29 2024-12-20]

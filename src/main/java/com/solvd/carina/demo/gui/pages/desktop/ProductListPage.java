@@ -33,6 +33,7 @@ public class ProductListPage extends PageBase {
     }
 
     public ProductPage clickOnRandomProduct() {
+        waitUntil(webDriver -> !productListComponentElements.isEmpty(),5);
         int randomIndex = new Random().nextInt(productListComponentElements.size());
         ProductListComponent productListComponent = productListComponentElements.get(randomIndex);
         ProductPage productPage = productListComponent.openProductEbay();

@@ -44,8 +44,8 @@ public class GUITests implements IAbstractTest {
 
     @Test(enabled = true)
     public void testWrongLoginAttempt() {
-        SignInPage signInPage = login("invalidUserId", "invalidPassword");
-        Assert.assertTrue(signInPage.isSignInErrorMsgDisplayed());
+        SignInPage signInPage = login("christian", "christianPassword");
+        Assert.assertTrue(signInPage.isSignInErrorMsgDisplayed(),"Sign in message must be displayed");
     }
 
     @Test(enabled = true)

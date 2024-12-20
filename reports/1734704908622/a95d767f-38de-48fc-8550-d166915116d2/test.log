@@ -1,9 +1,0 @@
-[2024-12-20 02:28:30] [67] [WARN] Reporting disabled: using no op test run registrar
-[2024-12-20 02:28:30] [67] [INFO] TEST [EbayTests - testCategoryShowResults [L01]] STARTED at [11:28:30 2024-12-20]
-[2024-12-20 02:28:30] [67] [INFO] Starting driver session...
-[2024-12-20 02:28:32] [67] [INFO] Driver session started.
-[2024-12-20 02:28:32] [67] [INFO] INFO: opening url 'https://www.ebay.co.uk'
-[2024-12-20 02:28:35] [67] [INFO] PASS: element 'categoriesSelect' is clicked.
-[2024-12-20 02:28:36] [67] [INFO] PASS: element 'options34' is clicked.
-[2024-12-20 02:28:39] [67] [INFO] PASS: element 'searchButton' is clicked.
-[2024-12-20 02:28:42] [67] [INFO] TEST [EbayTests - testCategoryShowResults [L01]] PASSED at [11:28:42 2024-12-20]

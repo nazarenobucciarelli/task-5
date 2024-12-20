@@ -67,7 +67,10 @@ public class HeaderComponent extends AbstractUIObject {
     public SignInPage clickSignInButton() {
         signInButton.click();
         SignInPage signInPage = new SignInPage(driver);
-        waitUntil(webDriver ->  !signInPage.getCaptcha().isVisible(),20);
+        if (signInPage.getCaptcha().isVisible()) {
+            System.out.println("captcha is visible");
+            waitUntil(webDriver -> !signInPage.getCaptcha().isVisible(),20);
+        }
         return signInPage;
     }
 

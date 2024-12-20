@@ -1,0 +1,11 @@
+[2024-12-20 06:20:09] [67] [WARN] Reporting disabled: using no op test run registrar
+[2024-12-20 06:20:09] [67] [INFO] TEST [EbayTests - testWrongLoginAttempt] STARTED at [15:20:09 2024-12-20]
+[2024-12-20 06:20:09] [67] [INFO] Starting driver session...
+[2024-12-20 06:20:11] [67] [INFO] Driver session started.
+[2024-12-20 06:20:11] [67] [INFO] INFO: opening url 'https://www.ebay.co.uk'
+[2024-12-20 06:20:15] [67] [INFO] PASS: element 'signInButton' is clicked.
+[2024-12-20 06:20:33] [67] [INFO] PASS: keys 'christian' are sent to element 'userId'.
+[2024-12-20 06:20:33] [67] [INFO] PASS: element 'signInContinueBtn' is clicked.
+[2024-12-20 06:20:44] [67] [INFO] PASS: keys 'christianPassword' are sent to element 'passwordInput'.
+[2024-12-20 06:20:44] [67] [INFO] PASS: element 'signInBtn' is clicked.
+[2024-12-20 06:20:54] [67] [INFO] TEST [EbayTests - testWrongLoginAttempt] PASSED at [15:20:54 2024-12-20]

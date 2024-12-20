@@ -32,7 +32,10 @@ public class SignInPage extends CaptchaPageBase {
 
     public void clickSignInContinueBtn() {
         signInContinueBtn.click();
-        waitUntil(webDriver -> passwordInput.isVisible(),5);
+        if (getCaptcha().isVisible()) {
+            System.out.println("captcha is visible");
+            waitUntil(webDriver -> !getCaptcha().isVisible(), 20);
+        }
     }
 
     public void typePassword(String password) {
