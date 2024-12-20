@@ -1,20 +1,20 @@
 package com.solvd.carina.demo;
 
 import com.solvd.carina.demo.gui.components.*;
+import com.solvd.carina.demo.gui.enums.Category;
 import com.solvd.carina.demo.gui.models.Product;
 import com.solvd.carina.demo.gui.pages.desktop.*;
 import com.zebrunner.carina.core.IAbstractTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class GUITests implements IAbstractTest {
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testSearchResults() {
         HomePage homePage = new HomePage(getDriver());
         homePage.open();
@@ -33,78 +33,61 @@ public class GUITests implements IAbstractTest {
         ShoppingCartPage shoppingCartPage = addProductToShoppingCart("t-shirts");
         Assert.assertEquals(shoppingCartPage.getCartProducts().size(), 1, "There should be one product");
     }
-    /*
 
     @Test(enabled = true)
     public void testShoppingCartRemove() {
-        List<String> productTitles = new ArrayList<>();
-        AtomicReference<ShoppingCartPage> shoppingCartPage = new AtomicReference<>(addProductToShoppingCart(productTitles, "t-shirt"));
-        AtomicReference<HeaderComponent> shoppingCartHeader = new AtomicReference<>(shoppingCartPage.get().getHeader());
-        shoppingCartPage.get().getCartProducts().forEach(cartProduct -> {
-            shoppingCartPage.set(cartProduct.clickRemoveButton());
-            shoppingCartHeader.set(shoppingCartPage.get().getHeader());
-        });
-        if (shoppingCartPage.get().isPageAlertVisible()) {
-            Assert.assertEquals(shoppingCartHeader.get().getCartNumber(), 0);
-            shoppingCartPage.get().getProductTitles().forEach(productTitle -> {
-                Assert.assertFalse(productTitles.contains(productTitle));
-            });
-        }
+        ShoppingCartPage shoppingCartPage = addProductToShoppingCart("t-shirt");
+        shoppingCartPage.getCartProducts().forEach(CartProductComponent::clickRemoveButton);
+        Assert.assertEquals(shoppingCartPage.getCartProducts().size(), 0, "There should be 0 products");
     }
 
-    @Test(enabled = false)
+
+    @Test(enabled = true)
     public void testWrongLoginAttempt() {
-        HomePage homePage = new HomePage(getDriver());
-        HeaderComponent headerComponent = homePage.getHeader();
-        SignInPage signInPage = headerComponent.clickSignInButton();
-        signInPage.typeUserId("invalidUserId");
-        signInPage.clickSignInContinueBtn();
-        signInPage.typePassword("invalidPassword");
-        signInPage.clickSignInBtn();
+        SignInPage signInPage = login("invalidUserId", "invalidPassword");
         Assert.assertTrue(signInPage.isSignInErrorMsgDisplayed());
     }
 
-    @Test(enabled = false)
+    @Test(enabled = true)
     public void testSearchFilteringFunctionality() {
-        HomeEbayPage homePage = new HomeEbayPage(getDriver());
-        Header header = homePage.getHeader();
-        header.typeSearchBox("guitars");
-        SearchResultsEbayPage searchResultsEbayPage = header.clickSearchButton();
-        SearchResultSideBar searchResultsSideBar = searchResultsEbayPage.getSideBar();
-        String brandName = searchResultsSideBar.selectRandomBrand();
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        HeaderComponent headerComponent = homePage.getHeader();
+        headerComponent.typeSearchBox("guitars");
+        ProductListPage productListPage = headerComponent.clickSearchButton();
+        ProductListLeftSideBarComponent productListLeftSideBar = productListPage.getLeftSideBar();
+        String brandName = productListLeftSideBar.selectRandomBrand();
         AtomicInteger counter = new AtomicInteger();
-        searchResultsEbayPage.getProducts().forEach(product -> {
-            if (product.getTitle().toLowerCase().contains(brandName.toLowerCase())) {
+        productListPage.getProducts().forEach(productListComponent -> {
+            if (productListComponent.getTitle().toLowerCase().contains(brandName.toLowerCase())) {
                 counter.getAndIncrement();
             }
         });
-        Assert.assertTrue(counter.get() > 10);
+        Assert.assertTrue(counter.get() > 10, "Number of products found with the brand on their title " +
+                "was lower than 10");
     }
 
-    @Test(enabled = false)
-    public void testLanguageSwitchFunctionality() {
-        HomeEbayPage homePage = new HomeEbayPage(getDriver());
-        Header header = homePage.getHeader();
-        List<String> categoriesBefore = homePage.getCategories().stream()
-                .map(ExtendedWebElement::getText).collect(Collectors.toList());
-        LanguageSwitchModal languageSwitchModal = header.clickLanguageMenuButton();
-        HomeEbayPage homePageWithAnotherLanguage = languageSwitchModal.clickOnRandomLanguageOption();
-        List<String> categoriesAfter = homePageWithAnotherLanguage.getCategories().stream()
-                .map(ExtendedWebElement::getText).collect(Collectors.toList());
-        categoriesAfter.forEach(element -> {
-            Assert.assertFalse(categoriesBefore.contains(element));
-        });
+
+    @Test(enabled = true)
+    public void testAreHeaderElementsDisplayed() {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        HeaderComponent headerComponent = homePage.getHeader();
+        Assert.assertTrue(headerComponent.areAllHeaderElementsDisplayed(), "Not all header elements were displayed");
     }
 
-    @Test(enabled = false)
-    public void testEverythingElseCategoryShowResults() {
-        HomeEbayPage homePage = new HomeEbayPage(getDriver());
-        Header header = homePage.getHeader();
-        Select select = header.clickAllCategoriesSelect();
-        select.clickOption(select.getOptions().size() - 1);
-        CategoryEbayPage categoryEbayPage = header.clickSearchButtonByCategory();
-        Assert.assertFalse(categoryEbayPage.getItems().isEmpty());
-    } */
+
+    @Test(enabled = true, dataProvider = "categories", dataProviderClass = DataProviders.class)
+    public void testCategoryShowResults(Category category) {
+        HomePage homePage = new HomePage(getDriver());
+        homePage.open();
+        HeaderComponent headerComponent = homePage.getHeader();
+        SelectComponent selectComponent = headerComponent.openCategoriesSelect();
+        selectComponent.clickOption(category);
+        CategoryPage categoryPage = headerComponent.clickSearchButtonByCategory();
+        Assert.assertFalse(categoryPage.getProducts().isEmpty(), "Category " + category.getDisplayName() +
+                " didn't show items");
+    }
 
     // Helper methods
 
@@ -141,6 +124,7 @@ public class GUITests implements IAbstractTest {
 
     public SignInPage login(String username, String password) {
         HomePage homePage = new HomePage(getDriver());
+        homePage.open();
         HeaderComponent headerComponent = homePage.getHeader();
         SignInPage signInPage = headerComponent.clickSignInButton();
         signInPage.typeUserId(username);

@@ -1,0 +1,13 @@
+[2024-12-20 02:36:11] [67] [WARN] Reporting disabled: using no op test run registrar
+[2024-12-20 02:36:11] [67] [INFO] TEST [EbayTests - testWrongLoginAttempt] STARTED at [11:36:11 2024-12-20]
+[2024-12-20 02:36:11] [67] [INFO] Starting driver session...
+[2024-12-20 02:36:12] [67] [INFO] Driver session started.
+[2024-12-20 02:36:12] [67] [INFO] INFO: opening url 'https://www.ebay.co.uk'
+[2024-12-20 02:36:15] [67] [INFO] PASS: element 'signInButton' is clicked.
+[2024-12-20 02:36:42] [67] [ERROR] Your retry_interval is too low: 100 ms! Increase it or upgrade your hardware
+[2024-12-20 02:37:02] [67] [ERROR] Your retry_interval is too low: 100 ms! Increase it or upgrade your hardware
+[2024-12-20 02:37:02] [67] [INFO] PASS: keys 'invalidUserId' are sent to element 'userId'.
+[2024-12-20 02:37:03] [67] [INFO] PASS: element 'signInContinueBtn' is clicked.
+[2024-12-20 02:37:04] [67] [INFO] PASS: keys 'invalidPassword' are sent to element 'passwordInput'.
+[2024-12-20 02:37:04] [67] [INFO] PASS: element 'signInBtn' is clicked.
+[2024-12-20 02:37:06] [67] [INFO] TEST [EbayTests - testWrongLoginAttempt] PASSED at [11:37:06 2024-12-20]

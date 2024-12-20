@@ -27,6 +27,9 @@ public class ProductPage extends PageBase {
     @FindBy(css = "div.confirm-dialog__window")
     private DialogComponent confirmationDialogComponent;
 
+    @FindBy(css = "div[data-testid='ux-overlay'][aria-hidden='false']")
+    private ShoppingCartOverlayComponent shoppingCartOverlayComponent;
+
     public ProductPage(WebDriver driver) {
         super(driver);
     }
@@ -46,7 +49,8 @@ public class ProductPage extends PageBase {
 
     public ShoppingCartOverlayComponent clickAddToCartButton() {
         addToCartButton.click();
-        return new ShoppingCartOverlayComponent(driver);
+        waitUntil(webDriver -> shoppingCartOverlayComponent.isUIObjectPresent(), 5);
+        return shoppingCartOverlayComponent;
     }
 
     public boolean isAddToCartButtonPresent() {
@@ -62,7 +66,7 @@ public class ProductPage extends PageBase {
     }
 
     public boolean isConfirmationDialogDisplayed() {
-        waitUntil(webDriver -> confirmationDialogComponent.isUIObjectPresent(), 5);
+        waitUntil(webDriver -> confirmationDialogComponent.isUIObjectPresent(), 2);
         return confirmationDialogComponent.isUIObjectPresent();
     }
 }

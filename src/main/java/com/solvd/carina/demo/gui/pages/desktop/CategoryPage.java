@@ -23,6 +23,7 @@ public class CategoryPage extends PageBase {
     }
 
     public List<Product> getProducts() {
+        waitUntil(webDriver -> !items.isEmpty(),5);
         return items.stream()
                 .map(productCategoryComponent -> new Product(
                         productCategoryComponent.getTitle(),

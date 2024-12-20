@@ -66,7 +66,9 @@ public class HeaderComponent extends AbstractUIObject {
 
     public SignInPage clickSignInButton() {
         signInButton.click();
-        return new SignInPage(driver);
+        SignInPage signInPage = new SignInPage(driver);
+        waitUntil(webDriver ->  !signInPage.getCaptcha().isVisible(),20);
+        return signInPage;
     }
 
     public SelectComponent openCategoriesSelect() {

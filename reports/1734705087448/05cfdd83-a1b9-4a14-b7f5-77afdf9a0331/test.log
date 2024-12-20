@@ -1,0 +1,6 @@
+[2024-12-20 02:31:29] [67] [WARN] Reporting disabled: using no op test run registrar
+[2024-12-20 02:31:29] [67] [INFO] TEST [EbayTests - testAreHeaderElementsDisplayed] STARTED at [11:31:29 2024-12-20]
+[2024-12-20 02:31:29] [67] [INFO] Starting driver session...
+[2024-12-20 02:31:31] [67] [INFO] Driver session started.
+[2024-12-20 02:31:31] [67] [INFO] INFO: opening url 'https://www.ebay.co.uk'
+[2024-12-20 02:31:35] [67] [INFO] TEST [EbayTests - testAreHeaderElementsDisplayed] PASSED at [11:31:35 2024-12-20]

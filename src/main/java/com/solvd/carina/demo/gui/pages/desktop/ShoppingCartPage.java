@@ -17,6 +17,7 @@ public class ShoppingCartPage extends PageBase {
     }
 
     public List<CartProductComponent> getCartProducts() {
+        waitUntil(webDriver -> !cartProductComponents.isEmpty(),5);
         return cartProductComponents;
     }
 

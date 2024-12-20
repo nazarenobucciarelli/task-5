@@ -7,13 +7,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
 public class ProductCategoryComponent extends AbstractUIObject {
+
     @FindBy(css = "h3")
     private ExtendedWebElement productName;
 
     @FindBy(css = ".brwrvr__item-card__signals__body")
     private ExtendedWebElement productPrice;
 
-    protected ProductCategoryComponent(WebDriver driver, SearchContext searchContext) {
+    public ProductCategoryComponent(WebDriver driver, SearchContext searchContext) {
         super(driver, searchContext);
     }
 

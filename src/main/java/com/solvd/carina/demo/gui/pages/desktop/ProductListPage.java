@@ -1,7 +1,7 @@
 package com.solvd.carina.demo.gui.pages.desktop;
 
 import com.solvd.carina.demo.gui.components.ProductListComponent;
-import com.solvd.carina.demo.gui.components.SearchResultsLeftSideBarComponent;
+import com.solvd.carina.demo.gui.components.ProductListLeftSideBarComponent;
 import com.solvd.carina.demo.gui.models.Product;
 import com.solvd.carina.demo.gui.pages.common.PageBase;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +18,7 @@ public class ProductListPage extends PageBase {
     private List<ProductListComponent> productListComponentElements;
 
     @FindBy(css = "div.srp-rail__left")
-    private SearchResultsLeftSideBarComponent leftSideBar;
+    private ProductListLeftSideBarComponent leftSideBar;
 
     public ProductListPage(WebDriver driver) {
         super(driver);
@@ -50,7 +50,7 @@ public class ProductListPage extends PageBase {
         return productPage;
     }
 
-    public SearchResultsLeftSideBarComponent getLeftSideBar() {
+    public ProductListLeftSideBarComponent getLeftSideBar() {
         return leftSideBar;
     }
 }

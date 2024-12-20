@@ -1,0 +1,18 @@
+[2024-12-20 02:32:32] [67] [WARN] Reporting disabled: using no op test run registrar
+[2024-12-20 02:32:32] [67] [INFO] TEST [EbayTests - testShoppingCartAdd] STARTED at [11:32:32 2024-12-20]
+[2024-12-20 02:32:32] [67] [INFO] Starting driver session...
+[2024-12-20 02:32:33] [67] [INFO] Driver session started.
+[2024-12-20 02:32:33] [67] [INFO] INFO: opening url 'https://www.ebay.co.uk'
+[2024-12-20 02:32:35] [67] [INFO] PASS: keys 't-shirts' are sent to element 'searchBox'.
+[2024-12-20 02:32:36] [67] [INFO] PASS: element 'searchButton' is clicked.
+[2024-12-20 02:32:41] [67] [INFO] PASS: element 'title' is clicked.
+[2024-12-20 02:32:43] [67] [INFO] PASS: element 'selectOptionButtons0' is clicked.
+[2024-12-20 02:32:44] [67] [INFO] PASS: element 'availableOptions5' is clicked.
+[2024-12-20 02:32:44] [67] [INFO] PASS: element 'selectOptionButtons1' is clicked.
+[2024-12-20 02:32:45] [67] [INFO] PASS: element 'availableOptions3' is clicked.
+[2024-12-20 02:32:45] [67] [INFO] PASS: element 'addToCartButton' is clicked.
+[2024-12-20 02:33:06] [67] [ERROR] Your retry_interval is too low: 100 ms! Increase it or upgrade your hardware
+[2024-12-20 02:33:30] [67] [INFO] PASS: element 'actionButtons1' is clicked.
+[2024-12-20 02:33:57] [67] [ERROR] Your retry_interval is too low: 100 ms! Increase it or upgrade your hardware
+[2024-12-20 02:34:17] [67] [ERROR] Your retry_interval is too low: 100 ms! Increase it or upgrade your hardware
+[2024-12-20 02:34:17] [67] [INFO] TEST [EbayTests - testShoppingCartAdd] PASSED at [11:34:17 2024-12-20]
