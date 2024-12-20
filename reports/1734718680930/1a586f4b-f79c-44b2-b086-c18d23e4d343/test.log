@@ -1,8 +1,0 @@
-[2024-12-20 06:18:55] [67] [WARN] Reporting disabled: using no op test run registrar
-[2024-12-20 06:18:55] [67] [INFO] TEST [EbayTests - testSearchResults] STARTED at [15:18:55 2024-12-20]
-[2024-12-20 06:18:55] [67] [INFO] Starting driver session...
-[2024-12-20 06:18:56] [67] [INFO] Driver session started.
-[2024-12-20 06:18:57] [67] [INFO] INFO: opening url 'https://www.ebay.co.uk'
-[2024-12-20 06:18:59] [67] [INFO] PASS: keys 'football jerseys' are sent to element 'searchBox'.
-[2024-12-20 06:19:01] [67] [INFO] PASS: element 'searchButton' is clicked.
-[2024-12-20 06:19:05] [67] [INFO] TEST [EbayTests - testSearchResults] PASSED at [15:19:05 2024-12-20]

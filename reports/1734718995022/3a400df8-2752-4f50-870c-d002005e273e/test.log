@@ -1,9 +1,0 @@
-[2024-12-20 06:23:56] [67] [WARN] Reporting disabled: using no op test run registrar
-[2024-12-20 06:23:56] [67] [INFO] TEST [EbayTests - testSearchFilteringFunctionality] STARTED at [15:23:56 2024-12-20]
-[2024-12-20 06:23:56] [67] [INFO] Starting driver session...
-[2024-12-20 06:23:57] [67] [INFO] Driver session started.
-[2024-12-20 06:23:57] [67] [INFO] INFO: opening url 'https://www.ebay.co.uk'
-[2024-12-20 06:23:59] [67] [INFO] PASS: keys 'guitars' are sent to element 'searchBox'.
-[2024-12-20 06:24:00] [67] [INFO] PASS: element 'searchButton' is clicked.
-[2024-12-20 06:24:04] [67] [INFO] PASS: element 'ExtendedWebElement - [5]' is clicked.
-[2024-12-20 06:24:08] [67] [INFO] TEST [EbayTests - testSearchFilteringFunctionality] PASSED at [15:24:08 2024-12-20]
